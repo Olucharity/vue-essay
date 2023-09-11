@@ -3,64 +3,63 @@
     <!-- 1. Template Syntax -->
     <!-- a. Text Interpolation -->
     <p>{{ message }}</p>
-    
     <!-- b. Raw HTML [v-html] -->
-    <div v-html="htmlContent"></div>
-    
+    <div v-html="htmlContent"> </div>
     <!-- c. Attribute Bindings [v-bind:id] -->
     <button :id="btnId">Click me</button>
-    
     <!-- d. JavaScript expressions inside syntax i.e.{{ }} -->
     <p>{{ 2 + 2 }}</p>
     
+
     <!-- 2. Methods -->
     <button @click="sayHello">Say Hello</button>
     
+
     <!-- 3. Reactivity Fundamentals -->
     <p>{{ count }}</p>
     
+
     <!-- 4. Computed Properties -->
     <p>Computed Property: {{ computedValue }}</p>
     
     <!-- 5. Class and Style Bindings -->
     <!-- a. Binding HTML class [v-bind:class] -->
-    <div :class="{ active: isActive }">Active Div</div>
-    
+    <div :class="{ active: isActive }"> Active Div </div>
     <!-- b. Binding Inline Styles [v-bind:style] -->
-    <div :style="{ color: textColor }">Styled Div</div>
+    <div :style="{ color: textColor }"> Styled Div </div>
     
+
     <!-- 6. List Rendering -->
     <!-- a. v-for with an Object -->
     <ul>
       <li v-for="(value, key) in items" :key="key">{{ key }}: {{ value }}</li>
-    </ul>
-    
+    </ul> 
     <!-- b. v-for with a Range -->
     <ul>
       <li v-for="n in 5" :key="n">{{ n }}</li>
     </ul>
-    
     <!-- c. v-for on <template> -->
-    <template v-for="item in items">
-      <p :key="item.id">{{ item.name }}</p>
-      <span :key="item.id + '-span'">Description: {{ item.description }}</span>
-    </template>
-    
+      <div v-for="item in items" :key="item.id">
+      <template>
+        <p>{{ item.name }}</p>
+        <span>Description: {{ item.description }}</span>
+      </template>
+    </div>
     <!-- d. v-for with v-if -->
     <ul>
       <li v-for="item in filteredItems" :key="item.id">{{ item.name }}</li>
     </ul>
-    
     <!-- e. v-for with a Component -->
     <custom-component v-for="item in items" :key="item.id" :data="item"></custom-component>
     
+
     <!-- 7. Event Handling: Listening to Events [v-on:click] -->
     <!-- a. Inline Handlers -->
     <button @click="incrementCount">Increment Count</button>
-    
     <!-- b. Method Handlers -->
     <button @click="handleClick">Handle Click</button>
     
+
     <!-- 8. Form Input Bindings -->
     <!-- a. v-model with various input types -->
     <input type="text" v-model="textValue" />
@@ -71,9 +70,9 @@
       <option value="option2">Option 2</option>
     </select>
     <textarea v-model="textareaValue"></textarea>
-    
     <!-- b. v-model modifiers -->
     <input type="text" v-model.trim="trimmedText" />
+    
     
     <!-- 9. Watchers -->
     <!-- Watcher example in the script section -->
@@ -103,6 +102,12 @@ export default {
       htmlContent: '<p>Rendered as raw HTML</p>',
       btnId: 'myButtonId',
       
+      items: [
+        { id: 1, name: 'Item 1', description: 'Description for Item 1' },
+        { id: 2, name: 'Item 2', description: 'Description for Item 2' },
+        // Add more items as needed
+      ],
+
       // 2. Methods
       sayHello() {
         alert('Hello!');
@@ -122,8 +127,8 @@ export default {
       
       // 6. List Rendering
       items: {
-        item1: 'Value 1',
-        item2: 'Value 2',
+        itemOne: 'Value 1',
+        itemTwo: 'Value 2',
       },
       filteredItems: [
         { id: 1, name: 'Item 1' },
