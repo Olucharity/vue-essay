@@ -39,7 +39,7 @@
       <li v-for="n in 5" :key="n">{{ n }}</li>
     </ul>
     <!-- c. v-for on <template> -->
-      <div v-for="item in items" :key="item.id">
+      <div v-for="item in listItem" :key="item.id">
       <template>
         <p>{{ item.name }}</p>
         <span>Description: {{ item.description }}</span>
@@ -126,9 +126,9 @@ export default {
       textColor: ref('red'),
       
       // 6. List Rendering
-      items: {
-        itemOne: 'Value 1',
-        itemTwo: 'Value 2',
+      listItem: {
+        item1: 'Value 1',
+        item2: 'Value 2',
       },
       filteredItems: [
         { id: 1, name: 'Item 1' },
